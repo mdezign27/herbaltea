@@ -324,3 +324,54 @@ body{
 
   .posts{grid-template-columns:1fr;gap:14px;margin-top:40px}
 }
+
+
+/* Responsive adjustments for the Figma-matched overlapping deliverables layout */
+@media (max-width:1020px){
+  .deliver{height:400px;margin-top:50px}
+  .phone{left:0;width:40%;height:400px}
+  .deliver-card{top:200px;height:200px;padding:40px 40px 0 44%}
+  .posts{
+    width:min(100%,92vw);
+    margin:90px auto 0;
+    transform:none;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media (max-width:720px){
+  .deliver{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:18px;
+    height:auto;
+    margin-top:34px;
+  }
+  .phone{
+    position:relative;
+    left:auto;
+    top:auto;
+    width:64%;
+    max-width:250px;
+    height:auto;
+    aspect-ratio:430 / 490;
+    order:2;
+  }
+  .phone-screen{height:100%}
+  .deliver-card{
+    position:relative;
+    left:auto;
+    top:auto;
+    width:100%;
+    height:auto;
+    padding:26px 28px;
+    order:1;
+  }
+  .posts{
+    width:100%;
+    margin:40px 0 0;
+    transform:none;
+    grid-template-columns:1fr;
+  }
+}
