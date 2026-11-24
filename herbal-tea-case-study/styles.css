@@ -1,5 +1,6 @@
 /* ============================================================
    Herbal Tea · Social Media Campaign — case study
+   Desktop geometry follows Figma frame 465:11 (1280px wide).
    ============================================================ */
 
 :root{
@@ -13,8 +14,7 @@
 }
 
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{
   margin:0;
   background:var(--cream);
@@ -24,107 +24,101 @@ body{
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
 }
-
 ::selection{background:#C6C9A7;color:#2F3A22}
-
 .sprite{position:absolute;width:0;height:0;overflow:hidden}
 
+/* The Figma artboard is 1280px wide. Keep its coordinates intact
+   on desktop instead of squeezing the layout into a 1080px wrapper. */
 .page{
-  width:min(1080px,92vw);
+  width:min(1280px,100%);
   margin:0 auto;
-  padding:200px 0 210px;
+  padding:165px 0 210px;
 }
 
-/* ── Opening ─────────────────────────────────────────────── */
-
+/* Opening */
 .display{
+  margin:0 0 0 99px;
   font-family:var(--serif);
-  font-weight:500;
-  font-size:clamp(46px,7.8vw,100px);
-  line-height:1;
+  font-weight:700;
+  font-size:96px;
+  line-height:1.08;
   letter-spacing:.002em;
   color:var(--ink);
-  margin:0;
 }
-
 .subtitle{
+  margin:20px 0 0 99px;
   font-family:var(--sans);
   font-weight:400;
-  font-size:clamp(30px,5vw,64px);
-  line-height:1.32;
+  font-size:64px;
+  line-height:1.2;
   letter-spacing:.002em;
-  color:#9C9E88;
-  margin:0;
+  color:#858A73;
 }
-
 .facts{
-  margin-top:35px;
+  width:1081px;
+  min-height:246px;
+  margin:31px auto 0;
+  padding:40px 61px;
+  border-radius:23px;
   background:var(--olive);
-  border-radius:20px;
-  padding:46px 60px;
-  min-height:243px;
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:0;
-  align-content:center;
+  align-items:center;
   color:#EDF0DE;
 }
-
 .fact h3{
-  font-family:var(--sans);
-  font-weight:500;
-  font-size:32px;
-  letter-spacing:.002em;
   margin:0 0 14px;
   color:#F0F2E4;
+  font-family:var(--sans);
+  font-size:36px;
+  line-height:1.15;
+  font-weight:600;
 }
-
 .fact p{
   margin:0;
-  font-size:30px;
-  line-height:1.3;
   color:#C6CCB2;
+  font-size:32px;
+  line-height:1.3;
+  font-weight:400;
 }
-
 .fact + .fact{
+  min-height:156px;
+  padding-left:45px;
   border-left:1px solid rgba(240,243,226,.3);
-  padding-left:52px;
 }
 
 .about{
+  width:1081px;
+  margin:53px auto 0;
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:25px;
-  margin-top:44px;
+  grid-template-columns:529px 529px;
+  gap:23px;
 }
-
 .about-card{
-  background:var(--sage);
+  min-height:355px;
+  padding:42px 61px 38px;
   border-radius:23px;
-  padding:42px 45px 38px;
+  background:var(--sage);
   display:flex;
   flex-direction:column;
-  min-height:355px;
 }
-
 .about-card h2{
-  font-family:var(--sans);
-  font-weight:500;
-  font-size:26px;
-  letter-spacing:.1em;
-  text-transform:uppercase;
   margin:0 0 18px;
   color:#3D4829;
+  font-family:var(--sans);
+  font-size:36px;
+  line-height:1.2;
+  font-weight:600;
+  letter-spacing:.02em;
 }
-
 .about-card p{
+  max-width:100%;
   margin:0;
-  font-size:21px;
+  color:#3F4830;
+  font-size:24px;
   line-height:1.42;
-  max-width:15em;
-  color:#59634A;
+  font-weight:400;
 }
-
 .brandmark{
   margin-top:auto;
   padding-top:26px;
@@ -133,31 +127,26 @@ body{
   gap:12px;
   color:#3D4829;
 }
-
 .mark{width:60px;height:60px;flex:0 0 auto;display:block}
-
 .brandname{
   font-family:var(--sans);
   font-weight:400;
   font-size:38px;
   letter-spacing:.005em;
 }
-
 .brandname em{font-weight:500}
 
-/* ── Deliverables row ────────────────────────────────────── */
-
+/* Deliverables: phone overlaps the olive panel exactly as in Figma. */
 .deliver{
   position:relative;
-  display:block;
+  width:1081px;
   height:499px;
-  margin:51px 0 0;
+  margin:51px auto 0;
 }
-
 .phone{
   position:absolute;
   z-index:2;
-  left:-14px;
+  left:-3px;
   top:0;
   width:467px;
   height:499px;
@@ -168,14 +157,7 @@ body{
   box-shadow:none;
   overflow:visible;
 }
-
-.phone-screen{
-  width:100%;
-  height:100%;
-  overflow:visible;
-  background:transparent;
-}
-
+.phone-screen{width:100%;height:100%;overflow:visible;background:transparent}
 .phone-shot{
   display:block;
   width:100%;
@@ -183,59 +165,51 @@ body{
   object-fit:contain;
   object-position:center;
 }
-
 .phone-notch{display:none}
-
 .deliver-card{
   position:absolute;
   z-index:1;
-  left:0;
+  left:-10px;
   top:253px;
-  width:100%;
+  width:1081px;
   height:246px;
-  padding:54px 47px 0 491px;
+  padding:54px 40px 0 502px;
   border-radius:23px;
   background:var(--olive);
 }
-
 .deliver-card h2{
-  font-family:var(--sans);
-  font-weight:600;
-  font-size:36px;
-  line-height:1;
-  letter-spacing:.01em;
   margin:0;
-  color:#FFFFFF;
+  color:#FFF;
+  font-family:var(--sans);
+  font-size:36px;
+  line-height:1.15;
+  font-weight:600;
+  letter-spacing:.01em;
 }
-
 .deliver-card p{
   margin:15px 0 0;
+  color:#FFF;
   font-size:32px;
   line-height:1.3;
-  letter-spacing:.02em;
   font-weight:400;
-  color:#FFFFFF;
+  letter-spacing:.02em;
 }
 
-/* ── Post grid ───────────────────────────────────────────── */
-
+/* Artwork grid */
 .posts{
+  width:min(1196px,calc(100% - 84px));
+  margin:150px auto 0;
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
   gap:18px 13px;
-  width:min(1196px,calc(100vw - 84px));
-  margin:150px 0 0 50%;
-  transform:translateX(-50%);
 }
-
 .post{
   position:relative;
-  aspect-ratio:4 / 5;
-  border-radius:23px;
+  aspect-ratio:390 / 488;
   overflow:hidden;
+  border-radius:23px;
   background:var(--card);
 }
-
 .post img{
   display:block;
   width:100%;
@@ -243,41 +217,91 @@ body{
   object-fit:cover;
 }
 
-/* ── Responsive ──────────────────────────────────────────── */
-
-@media (max-width:1020px){
-  .page{padding-top:80px;padding-bottom:90px}
-  .posts{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;width:92vw;margin:90px auto 0;transform:none}
-  .deliver{height:400px;margin-top:50px}
-  .phone{left:0;width:40%;height:400px}
-  .deliver-card{top:200px;height:200px;padding:40px 40px 0 44%}
-  .deliver-card h2{font-size:28px}
-  .deliver-card p{font-size:24px}
-  .about-card{min-height:0}
-  .facts{padding:42px 44px;min-height:0}
-  .fact h3{font-size:24px}
-  .fact p{font-size:21px}
+/* Tablet */
+@media (max-width:1279px) and (min-width:721px){
+  .page{padding-top:9vw;padding-bottom:90px}
+  .display,.subtitle{margin-left:7.7%}
+  .display{font-size:clamp(54px,7.5vw,96px)}
+  .subtitle{font-size:clamp(38px,5vw,64px);margin-top:18px}
+  .facts,.about{width:84.5%}
+  .facts{min-height:0;padding:34px 5%;margin-top:28px}
+  .fact h3,.about-card h2{font-size:clamp(22px,2.8vw,34px)}
+  .fact p{font-size:clamp(18px,2.35vw,30px)}
+  .fact + .fact{padding-left:5%;min-height:0}
+  .about{grid-template-columns:repeat(2,minmax(0,1fr));gap:2%}
+  .about-card{min-height:300px;padding:32px 7%}
+  .about-card p{font-size:clamp(16px,1.9vw,22px)}
+  .brandname{font-size:clamp(25px,3vw,36px)}
+  .deliver{width:84.5%;height:auto;aspect-ratio:1081 / 499;margin-top:45px}
+  .phone{left:-.3%;width:43.2%;height:100%}
+  .deliver-card{left:-.9%;top:50.7%;width:100%;height:49.3%;padding:5% 3% 0 46.5%}
+  .deliver-card h2{font-size:clamp(22px,2.8vw,34px)}
+  .deliver-card p{font-size:clamp(18px,2.4vw,30px)}
+  .posts{width:93.5%;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:100px}
 }
 
+/* Mobile */
 @media (max-width:720px){
-  .page{width:90vw;padding:44px 0 64px}
-  .display{font-size:clamp(38px,12vw,56px)}
-  .subtitle{font-size:clamp(26px,7.4vw,32px)}
-  .facts{grid-template-columns:1fr;gap:0;padding:26px 28px;margin-top:26px}
-  .fact + .fact{border-left:0;border-top:1px solid rgba(240,243,226,.3);padding-left:0;margin-top:22px;padding-top:22px}
-  .fact h3{font-size:19px;margin-bottom:10px}
+  .page{width:90vw;padding:48px 0 64px}
+  .display{margin:0;font-size:clamp(40px,11vw,60px);line-height:1.05}
+  .subtitle{margin:14px 0 0;font-size:clamp(27px,7.4vw,38px);line-height:1.2}
+  .facts{
+    width:100%;
+    min-height:0;
+    margin-top:28px;
+    padding:25px 26px;
+    grid-template-columns:1fr;
+    gap:0;
+  }
+  .fact h3{font-size:20px;margin-bottom:9px}
   .fact p{font-size:17px}
-  .about{grid-template-columns:1fr;gap:16px;margin-top:34px}
-  .about-card{min-height:0;padding:26px 26px 22px;border-radius:23px}
-  .about-card h2{font-size:18px}
-  .about-card p{font-size:16px}
+  .fact + .fact{
+    min-height:0;
+    margin-top:20px;
+    padding:20px 0 0;
+    border-left:0;
+    border-top:1px solid rgba(240,243,226,.3);
+  }
+  .about{width:100%;grid-template-columns:1fr;gap:15px;margin-top:30px}
+  .about-card{min-height:0;padding:26px;border-radius:20px}
+  .about-card h2{font-size:20px}
+  .about-card p{font-size:16px;line-height:1.5}
   .mark{width:44px;height:44px}
   .brandname{font-size:28px}
-  .deliver{display:flex;flex-direction:column;align-items:center;gap:18px;height:auto;margin-top:34px}
-  .phone{position:relative;left:auto;top:auto;width:64%;max-width:250px;height:auto;aspect-ratio:467 / 499;order:2}
-  .deliver-card{position:relative;left:auto;top:auto;width:100%;height:auto;padding:26px 28px;order:1}
+  .deliver{
+    width:100%;
+    height:auto;
+    margin-top:34px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:18px;
+  }
+  .deliver-card{
+    position:relative;
+    left:auto;
+    top:auto;
+    width:100%;
+    height:auto;
+    padding:25px 26px;
+    order:1;
+  }
   .deliver-card h2{font-size:23px}
-  .deliver-card p{font-size:20px}
-  .posts{grid-template-columns:1fr;gap:14px;width:100%;margin:40px 0 0;transform:none}
+  .deliver-card p{font-size:20px;margin-top:10px}
+  .phone{
+    position:relative;
+    left:auto;
+    top:auto;
+    width:min(78%,300px);
+    height:auto;
+    aspect-ratio:467 / 499;
+    order:2;
+  }
+  .posts{
+    width:100%;
+    margin:40px 0 0;
+    grid-template-columns:1fr;
+    gap:14px;
+  }
   .post{border-radius:18px}
 }
